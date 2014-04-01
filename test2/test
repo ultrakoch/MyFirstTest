@@ -1,0 +1,117 @@
+#!/bin/sh
+
+echo "##############################################"
+echo "# Mobile Robotic Lab Installation"
+echo "##############################################"
+
+if [ "$(id -u)" != "0" ]; then
+	echo "Sorry, you are not root."
+  echo "Please call this skript with <sudo ./installLAB>" 
+	exit 1
+fi
+
+while :
+do
+  # check what parameter was mentioned
+  echo "Please use following parameters for installation"
+  echo "  <<1>> for installing eclipse ssh and octave"
+  echo "  <<2>> for installing texmaker, doxygen, inkscape and jabref"
+  echo "  <<3>> for installing private software "
+  echo "  <<q>> for quit"
+  read case;
+
+  case $case in
+      1)   echo "installing everything for editing"
+            # installation for editing
+            apt-get install eclipse-cdt
+            apt-get install ssh
+            apt-get install octave3.2 qtoctave;;
+
+      2)   echo "installing everything for documentation"
+            # installation for documentation
+            apt-get install inkscape
+            apt-get install texmaker
+            apt-get install jabref;;
+
+      3)   echo "installing private software"
+   	   ## Java
+#		sudo apt-get install icedtea-6-plugin
+#	    	sudo apt-get install icedtea-7-plugin
+#	    	sudo apt-get install libbsf-java
+#	    	sudo apt-get install librxxtx-java
+#	    	sudo apt-get install java-common
+#	    	sudo apt-get install openjdk-7
+#	    	sudo apt-get install openjdk-6
+#	    	sudo apt-get install java-wrappers
+#	    	sudo apt-get install libjaxme-java
+#	    	sudo apt-get install default-jre
+#	    	sudo apt-get install default-jdk
+#	    	sudo apt-get install default-jre-headless
+#	    	sudo apt-get install openjdk-6-jre-headless
+#	    	sudo apt-get install ca-certificates-java
+#	    	sudo apt-get install icedtea-6-jre-cacao
+#	    	sudo apt-get install libaccess-bridge-java
+#	    	sudo apt-get install libaccess-bridge-java-jni
+#	    	sudo apt-get install libgif4
+       ## Sonstige
+		sudo apt-get install synaptic		
+		sudo apt-get install valgrind			# zum Analysieren von Secfaults
+#		sudo apt-get install playonlinux    		# Für Spiele on Linux
+		sudo apt-get install gisomount			# iso-Mountprogramm    
+		sudo apt-get install guvcview			# viewer für Cameras
+	        sudo apt-get install terminator
+		sudo apt-get install gparted
+#		sudo apt-get install gnome-shell
+#		sudo apt-get install gnome-tweak-too
+	        sudo apt-get install ssh
+	        sudo apt-get install inkscape
+		sudo apt-get install texmaker
+	        sudo apt-get install jabref 		
+	## Octave
+		sudo apt-get install octave3.2 
+		sudo apt-get install qtoctave
+        ## Skype
+            sudo apt-add-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
+            sudo apt-get update && sudo apt-get install skype
+        ## Für Kinect
+#		sudo apt-get install libopencv-dev
+#		sudo apt-get install libhighgui2.3
+#		sudo apt-get install libcvauc2.3
+#		sudo apt-get install libcv2.3
+#		sudo apt-get install libopenni-dev
+#		sudo apt-get install ps-engine
+#		sudo apt-get install libopenni2-dev
+        ## Programming
+		sudo apt-get install git			# Versionsverwaltung
+		sudo apt-get install cmake-curses-gui		# CMake
+		sudo apt-get install eclipse-cdt       
+		sudo apt-get install lua5.1  
+   		sudo apt-get install liblua5.1-0-dev
+	## Doxygen
+	    	apt-get install doxygen 
+	    	apt-get install doxygen-gui 
+	    	apt-get install doxygen-doc 
+        ## Obvious
+            sudo apt-get install freeglut3-dev
+            sudo apt-get install libgsl0-dev
+            sudo apt-get install libgl2ps0
+            sudo apt-get install libmyqlclient18
+            sudo apt-get install libnetcdf6
+            sudo apt-get install libpq5
+            sudo apt-get install libvtk5.8
+            sudo apt-get install mysql-common
+            sudo apt-get install libxml++2.6-dev
+            sudo apt-get install libudev-dev
+            sudo apt-get install libann0
+            sudo apt-get install libann-dev
+            sudo apt-get install libflann-dev
+	    sudo apt-get install libv4l.dev
+	    sudo apt-get install build-essential -y ;;
+
+      q) exit
+  esac 
+done
+
+
+
+
